@@ -1,25 +1,18 @@
 name: str='dr.ardestani---alireza-panahi'
 print(f'{name:_^50}')
 import turtle as T
-T.speed(0) #بالا ترین سرعت ترتل 
-# T.tracer(0)
+import math as M
+import time
 def title ():
     T.penup()
     T.goto(-50,-50)
     T.write(name)
     T.pendown()
 title()
-n=10
-p='power'
-def g(m,a):
-    angel=120
-    n=10
-    T.lt(a)
-    n=10
-    for i in range (n):
-        T.forward (p)
-        T.right (angel/n)
-
+screen = T.Screen()
+# -----------------------------------------------تابع ادمک هدف
+T.speed(0) #بالا ترین سرعت ترتل 
+# T.tracer(0)
 T.penup()
 T.goto(400,50)
 T.pendown()
@@ -63,17 +56,35 @@ T.rt(70)
 T.fd(32)
 T.lt(30)
 T.penup()
-T.goto(-490,10)
-T.pendown()
-T.pendown()
-T.speed(2) 
+# -----------------------------------------------تابع و محاسبات پرتاب شلیک
+def arrow():
+    a= T.Turtle()
+    a.speed(0)
+    a.shape("circle")
+    a.penup() 
+    x0=-490
+    y0=8
+    x=x0
+    y=y0
+    # a.penup()
+    a.goto(x0,y0)
+    a.speed(1)
+    v0=float(input('please input the power(speed)'))
+    deg=float(input('please input the degree'))
+    deg_rad = M.radians(deg)
+    g = 9.81
+    t_prime = 0.5
+    t=0
+    vx = v0 * M.cos(deg_rad)
+    vy = v0 * M.sin(deg_rad)
+    while 1>0:
+        x = x0 + vx * t
+        y = y0 + vy * t - 0.5 * g * t**2
+        a.goto(x,y)
+        t+=t_prime
+        if y< y0:
+            break
+# 
+arrow()
 
-p=int(input('power -- ghodrat zarbe ra vared konid'))
-a=int(input('angel -- zavie partab ra vared konid'))
-T.penup()
-T.goto(-490,10)
-T.pendown()
-# p=120
-# a=20
-g(p,a)
 T.done()
