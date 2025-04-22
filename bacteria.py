@@ -16,5 +16,5 @@ def bacteria (n): #تابع باکتری را میسازیم
                 dead+=1
     print('in just a {0} seconds the number of bacteria comes to the {1} and in this time {2} bactria died'.format(t,bacteria,dead))
 
-#تابع را برای تعداد یک میلیون باکتری فراخانی میکنیم
+#تابع را برای تعداد یک میلیون باکتری فراخوانی میکنیم
 bacteria (1000000)
